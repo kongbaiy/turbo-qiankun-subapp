@@ -1,0 +1,16 @@
+{
+    "extends": "@repo/typescript-config/react-library.json",
+    "ignoreDeprecations": "6.0",
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "noEmit": true,
+        "types": [
+            "vite/client"
+        ]
+    },
+    "include": [
+        "src",
+        "auto-imports.d.ts"
+    ]
+}

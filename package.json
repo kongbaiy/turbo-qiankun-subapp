@@ -1,0 +1,23 @@
+{
+    "name": "turbo-qiankun-subapp",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "dev": "vite",
+        "preview": "vite preview",
+        "build": "tsc && vite build",
+        "check-types": "tsc --noEmit",
+        "postinstall": "git config core.hooksPath ../../.husky/_ &&  git config core.excludesfile ../../.gitignore"
+    },
+    "keywords": [],
+    "lint-staged": {
+        "*.{vue,js,jsx}": "eslint --fix --max-warnings 0 --no-warn-ignored",
+        "*.{json,md}": "eslint --fix --max-warnings 0 --no-warn-ignored",
+        "*.{css,scss}": "stylelint --fix",
+        "*.{ts,tsx}": "bash -c 'pnpm exec tsc --noEmit -p tsconfig.json'"
+    },
+    "dependencies": {
+        "qiankun": "^2.10.16",
+        "vite-plugin-qiankun": "^1.0.15"
+    }
+}
