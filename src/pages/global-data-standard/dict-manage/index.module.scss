@@ -1,0 +1,37 @@
+.page-container {
+    width: 100%;
+
+    :global {
+        .ant-page-header {
+            padding: 0;
+
+            .ant-page-header-footer {
+                margin-block-start: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.category-card {
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    }
+
+    &--active {
+        border-color: #1890ff;
+        box-shadow: 0 4px 12px rgb(24 144 255 / 15%);
+    }
+}
+
+.import-upload {
+    :global {
+        .ant-upload-drag {
+            padding: 24px;
+        }
+    }
+}

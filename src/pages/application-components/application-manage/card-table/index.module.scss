@@ -1,0 +1,71 @@
+p {
+    @apply m-0;
+}
+
+.card-container {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.card {
+    @apply of-hidden shadow-md rd-2;
+}
+
+.card-header {
+    @apply p-6 bg-#3b82f6;
+}
+
+.card-row {
+    @apply w-full flex items-center justify-between;
+}
+
+.card-icon-box {
+    @apply w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center;
+}
+
+.card-icon {
+    @apply w-8 h-8 mr-2;
+}
+
+.card-status {
+    @apply p-x-2 p-y-1 text-sm text-gray-500 bg-#D1FAE5 text-#065F46 rd-4;
+}
+
+.card-title {
+    @apply mt-14px text-lg font-bold text-white;
+}
+
+.card-code {
+    @apply text-sm text-white;
+}
+
+.card-main {
+    @apply p-6;
+}
+
+.card-version {
+    @apply p-x-2 p-y-1 text-sm bg-blue-100 text-#1d4ed8 rd-1;
+}
+
+.card-version-text {
+    @apply ml-2 text-sm text-#999;
+}
+
+.card-description {
+    @apply mt-14px text-14px text-#333;
+}
+
+.card-data {
+    @apply text-sm text-gray-500;
+}
+
+.card-actions {
+    @apply flex gap-2 justify-between mt-16px pt-16px b-t-1px b-t-solid b-t-[rgb(243,244,246)];
+}
+
+.detail {
+    @apply bg-[rgb(124,58,237,0.3)] text-sm text-[rgb(124,58,237,1)] b-none hover:bg-gray-200 transition-colors cursor-pointer;
+}
+
+.resource-config {
+    @apply bg-gray-100 text-sm b-none hover:bg-gray-200 transition-colors cursor-pointer;
+}

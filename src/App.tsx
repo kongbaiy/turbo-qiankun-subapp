@@ -1,11 +1,40 @@
+import { useEffect } from 'react'
+import { RouterProvider } from 'react-router-dom'
+import router from './router'
+
+import { lightTheme } from '@repo/antd-theme'
+import { StyleProvider } from '@ant-design/cssinjs'
+import { ConfigProvider, App as Antd } from 'antd'
+import { initAntdGlobal } from '@repo/utils'
+import { MicroAppStateActions } from 'qiankun'
+import { AliveScope } from 'react-activation'
+
+function InnerApp() {
+    const instance = Antd.useApp()
+    const basicActions = window.basicActions as MicroAppStateActions | undefined
+
+    useEffect(() => {
+        basicActions?.setGlobalState({
+            menu: router.routes,
+        })
+    }, [])
+    useEffect(() => {
+        initAntdGlobal(instance)
+    }, [instance])
+
+    return <RouterProvider router={router} />
+}
+
 export default function App() {
-    const [count, setCount] = useState<number>(0)
     return (
-        <div>
-            <p>子应用1</p>
-            <p>计数: {count}</p>
-            <button onClick={() => setCount(count + 1)}>增加</button>
-            <input type='text' placeholder='子应用1输入框' />
-        </div>
+        <AliveScope>
+            <StyleProvider hashPriority='high'>
+                <ConfigProvider theme={lightTheme}>
+                    <Antd>
+                        <InnerApp />
+                    </Antd>
+                </ConfigProvider>
+            </StyleProvider>
+        </AliveScope>
     )
 }

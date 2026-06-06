@@ -2,6 +2,11 @@
     "extends": "@repo/typescript-config/react-library.json",
     "ignoreDeprecations": "6.0",
     "compilerOptions": {
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
         "module": "ESNext",
         "moduleResolution": "bundler",
         "noEmit": true,
@@ -11,6 +16,16 @@
     },
     "include": [
         "src",
-        "auto-imports.d.ts"
+        "auto-imports.d.ts",
+        ".eslintrc-auto-imports.d.ts",
+        "qiankun",
+        "../../types"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/dist/**",
+        "**/node_modules/**",
+        ".turbo"
     ]
 }

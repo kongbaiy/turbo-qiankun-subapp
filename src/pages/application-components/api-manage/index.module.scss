@@ -1,0 +1,55 @@
+.page-container {
+    width: 100%;
+
+    :global {
+        .ant-page-header {
+            padding: 0;
+
+            .ant-page-header-footer {
+                margin-block-start: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.method-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &--get {
+        border: 1px solid #b7eb8f;
+        background: #f6ffed;
+        color: #52c41a;
+    }
+
+    &--post {
+        border: 1px solid #ffe58f;
+        background: #fffbe6;
+        color: #faad14;
+    }
+
+    &--put {
+        border: 1px solid #91d5ff;
+        background: #e6f7ff;
+        color: #1890ff;
+    }
+
+    &--delete {
+        border: 1px solid #ffa39e;
+        background: #fff1f0;
+        color: #ff4d4f;
+    }
+
+    &--websocket {
+        border: 1px solid #d3adf7;
+        background: #f9f0ff;
+        color: #722ed1;
+    }
+}

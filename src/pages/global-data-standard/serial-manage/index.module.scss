@@ -1,0 +1,32 @@
+.page-container {
+    width: 100%;
+
+    :global {
+        .ant-page-header {
+            padding: 0;
+
+            .ant-page-header-footer {
+                margin-block-start: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.preview-list {
+    display: flex;
+    padding: 16px;
+    border-radius: 8px;
+    background: #f6f8fa;
+    flex-direction: column;
+    gap: 8px;
+
+    .preview-item {
+        padding: 8px 12px;
+        border-radius: 4px;
+        background: #fff;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        color: #1890ff;
+    }
+}

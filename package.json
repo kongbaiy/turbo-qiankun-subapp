@@ -1,5 +1,5 @@
 {
-    "name": "turbo-qiankun-subapp",
+    "name": "sc-cloud-platform",
     "version": "1.0.0",
     "description": "",
     "scripts": {
@@ -17,7 +17,6 @@
         "*.{ts,tsx}": "bash -c 'pnpm exec tsc --noEmit -p tsconfig.json'"
     },
     "dependencies": {
-        "qiankun": "^2.10.16",
-        "vite-plugin-qiankun": "^1.0.15"
+        "qiankun": "^2.10.16"
     }
 }
