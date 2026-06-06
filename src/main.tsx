@@ -37,6 +37,7 @@ renderWithQiankun({
         render(props)
     },
     unmount() {
+        // qiankun 采用 dom loadMicroApp + 隐藏显示实现多标签缓存，子项目的重点的是qiankun子应用离开卸载时不销毁DOM实例
         // root?.unmount()
         // root = null
     },
