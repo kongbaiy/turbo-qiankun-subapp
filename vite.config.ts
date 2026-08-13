@@ -39,6 +39,12 @@ export default defineConfig({
             'Access-Control-Allow-Origin': '*',
         },
         // 子应用在 qiankun 沙箱内不需要 HMR，且 /@vite/client 与主应用冲突
-        hmr: false
+        // hmr: false
+        hmr: {
+            host: 'localhost',
+            port: 3010,
+            protocol: 'ws',
+            overlay: false,
+        },
     }
 })
