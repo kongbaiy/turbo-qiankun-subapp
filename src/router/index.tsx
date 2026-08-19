@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, replace } from 'react-router-dom'
 import { KeepAlive } from 'react-activation'
 
 import { asyncComponent } from './async-component'
@@ -6,6 +6,10 @@ import Auth from './auth'
 
 const routers = createBrowserRouter(
     [
+        {
+            path: '/',
+            loader: () => replace('/application-components/application'),
+        },
         {
             path: '/application-components',
             handle: {
@@ -35,12 +39,14 @@ const routers = createBrowserRouter(
                         name: '应用管理',
                     },
                     element: (
-                        <Auth>
-                            {asyncComponent(
-                                () =>
-                                    import('@/pages/application-components/application-manage'),
-                            )}
-                        </Auth>
+                        <KeepAlive>
+                            <Auth>
+                                {asyncComponent(
+                                    () =>
+                                        import('@/pages/application-components/application-manage'),
+                                )}
+                            </Auth>
+                        </KeepAlive>
                     ),
                 },
                 {

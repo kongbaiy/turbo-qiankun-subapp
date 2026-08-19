@@ -6,13 +6,14 @@ import {
     renderWithQiankun,
     qiankunWindow,
 } from 'vite-plugin-qiankun/dist/helper'
+import { MicroAppStateActions } from 'qiankun'
+import { generateId } from '@repo/utils'
 
 import 'uno.css'
 import 'antd/dist/reset.css'
 
-import { MicroAppStateActions } from 'qiankun'
-
 let root: Root | null = null
+const id = generateId()
 
 function render(
     props: {
@@ -28,7 +29,7 @@ function render(
     if (props.basicActions) window.basicActions = props.basicActions
 
     root = ReactDOM.createRoot(mountElement)
-    root.render(<App />)
+    root.render(<App id={id} />)
 }
 
 renderWithQiankun({
@@ -37,9 +38,8 @@ renderWithQiankun({
         render(props)
     },
     unmount() {
-        // qiankun 采用 dom loadMicroApp + 隐藏显示实现多标签缓存，子项目的重点的是qiankun子应用离开卸载时不销毁DOM实例
-        // root?.unmount()
-        // root = null
+        root?.unmount()
+        root = null
     },
     update() {},
 })

@@ -9,6 +9,10 @@ import { initAntdGlobal } from '@repo/utils'
 import { MicroAppStateActions } from 'qiankun'
 import { AliveScope } from 'react-activation'
 
+interface Props {
+    id: string
+}
+
 function InnerApp() {
     const instance = Antd.useApp()
     const basicActions = window.basicActions as MicroAppStateActions | undefined
@@ -25,16 +29,21 @@ function InnerApp() {
     return <RouterProvider router={router} />
 }
 
-export default function App() {
+export default function App(props: Props) {
+    const root = document.querySelector('#root')
+    const styleContainer = document.createElement('div')
+
+    root?.appendChild(styleContainer)
+
     return (
-        <AliveScope>
-            <StyleProvider hashPriority='high'>
-                <ConfigProvider theme={lightTheme}>
-                    <Antd>
+        <StyleProvider container={styleContainer} hashPriority='high'>
+            <ConfigProvider prefixCls={`subapp-${props.id}`} theme={lightTheme}>
+                <Antd>
+                    <AliveScope>
                         <InnerApp />
-                    </Antd>
-                </ConfigProvider>
-            </StyleProvider>
-        </AliveScope>
+                    </AliveScope>
+                </Antd>
+            </ConfigProvider>
+        </StyleProvider>
     )
 }
