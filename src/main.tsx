@@ -29,7 +29,7 @@ function render(
     if (props.basicActions) window.basicActions = props.basicActions
 
     root = ReactDOM.createRoot(mountElement)
-    root.render(<App id={id} />)
+    root.render(<App id={id} mountElement={mountElement} />)
 }
 
 renderWithQiankun({
