@@ -11,6 +11,7 @@ import { AliveScope } from 'react-activation'
 
 interface Props {
     id: string
+    mountElement: HTMLElement | Element
 }
 
 function InnerApp() {
@@ -37,7 +38,11 @@ export default function App(props: Props) {
 
     return (
         <StyleProvider container={styleContainer} hashPriority='high'>
-            <ConfigProvider prefixCls={`subapp-${props.id}`} theme={lightTheme}>
+            <ConfigProvider 
+                prefixCls={`subapp-${props.id}`} 
+                theme={lightTheme} 
+                getPopupContainer={() => props.mountElement as HTMLElement}
+            >
                 <Antd>
                     <AliveScope>
                         <InnerApp />
