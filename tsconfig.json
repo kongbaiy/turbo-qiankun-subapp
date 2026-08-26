@@ -19,7 +19,9 @@
         "auto-imports.d.ts",
         ".eslintrc-auto-imports.d.ts",
         "qiankun",
-        "../../types"
+        "../../types",
+        "*.ts",
+        "*.js"
     ],
     "exclude": [
         "node_modules",
